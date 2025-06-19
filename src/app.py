@@ -1,10 +1,9 @@
 import streamlit as st
-import login  # Importa el login para proteger la app
+from login import login_azure_ad
 from azure.core.credentials import AccessToken, TokenCredential
 
-# Verifica si el usuario está autenticado antes de mostrar la app principal
-if "token" not in st.session_state:
-    st.warning("Debes iniciar sesión para acceder a la aplicación.")
+# Llama al login y detén la app si el usuario no está autenticado
+if not login_azure_ad():
     st.stop()
 
 # Mensaje de bienvenida personalizado

@@ -77,6 +77,6 @@ else:
             
     except Exception as e:
         st.error(f"Error: {str(e)}")
-        if st.button("Reiniciar"):
+        if st.button("Regitiniciar"):
             st.session_state.clear()
             st.rerun()
